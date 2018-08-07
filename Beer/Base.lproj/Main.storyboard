@@ -64,7 +64,7 @@
         <!--Add-->
         <scene sceneID="kAm-32-VaJ">
             <objects>
-                <viewController id="RM8-lw-ptU" sceneMemberID="viewController">
+                <viewController id="RM8-lw-ptU" customClass="AddViewController" customModule="Beer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B2r-kD-rEX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,7 +222,7 @@
         <!--Beers-->
         <scene sceneID="mFp-2Z-na0">
             <objects>
-                <viewController id="NjN-iQ-aWF" sceneMemberID="viewController">
+                <viewController id="NjN-iQ-aWF" customClass="ListViewController" customModule="Beer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zzs-a4-buS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,7 +231,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BeerCell" id="ufA-eK-cBJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BeerCell" id="ufA-eK-cBJ" customClass="BeerCell" customModule="Beer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ufA-eK-cBJ" id="K8s-UQ-h2L">
@@ -260,6 +260,10 @@
                                                 <constraint firstItem="z3O-1V-Ynf" firstAttribute="width" secondItem="K8s-UQ-h2L" secondAttribute="width" multiplier="0.25" id="pne-MW-M09"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="LeftCell" destination="9mq-TA-0Ve" id="lpf-Ir-CQe"/>
+                                            <outlet property="RightCell" destination="z3O-1V-Ynf" id="1R1-xJ-bjq"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -280,6 +284,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="beersTableView" destination="vq3-FO-lfn" id="cO5-dq-HTd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIG-Kz-EiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -305,6 +312,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Dmf-XG-tCs"/>
+        <segue reference="aDu-n5-h5U"/>
     </inferredMetricsTieBreakers>
 </document>
