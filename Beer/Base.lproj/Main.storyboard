@@ -6,14 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Menu-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Beer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -54,8 +55,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="XWU-Eh-glG"/>
+                    <navigationItem key="navigationItem" title="Menu" id="VdM-K9-aWD"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="510" y="36"/>
         </scene>
@@ -215,7 +217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Elx-dH-QNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="385"/>
+            <point key="canvasLocation" x="1353" y="430"/>
         </scene>
         <!--Beers-->
         <scene sceneID="mFp-2Z-na0">
@@ -224,14 +226,64 @@
                     <view key="view" contentMode="scaleToFill" id="zzs-a4-buS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vq3-FO-lfn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BeerCell" id="ufA-eK-cBJ">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ufA-eK-cBJ" id="K8s-UQ-h2L">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3O-1V-Ynf">
+                                                    <rect key="frame" x="266.5" y="11" width="93.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9mq-TA-0Ve">
+                                                    <rect key="frame" x="16" y="11" width="244" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="z3O-1V-Ynf" firstAttribute="centerY" secondItem="K8s-UQ-h2L" secondAttribute="centerY" id="7HQ-NT-yHK"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="z3O-1V-Ynf" secondAttribute="trailing" id="NhP-xa-uwL"/>
+                                                <constraint firstItem="9mq-TA-0Ve" firstAttribute="centerY" secondItem="K8s-UQ-h2L" secondAttribute="centerY" id="V2g-rv-x6f"/>
+                                                <constraint firstItem="9mq-TA-0Ve" firstAttribute="width" secondItem="K8s-UQ-h2L" secondAttribute="width" multiplier="0.65" id="jCx-Eg-vnI"/>
+                                                <constraint firstItem="9mq-TA-0Ve" firstAttribute="leading" secondItem="K8s-UQ-h2L" secondAttribute="leading" constant="16" id="ojU-Jt-8PT"/>
+                                                <constraint firstItem="z3O-1V-Ynf" firstAttribute="width" secondItem="K8s-UQ-h2L" secondAttribute="width" multiplier="0.25" id="pne-MW-M09"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vq3-FO-lfn" firstAttribute="leading" secondItem="RUH-GV-Bcc" secondAttribute="leading" id="7DT-BN-BiF"/>
+                            <constraint firstItem="RUH-GV-Bcc" firstAttribute="bottom" secondItem="vq3-FO-lfn" secondAttribute="bottom" id="Sga-MU-yWU"/>
+                            <constraint firstItem="RUH-GV-Bcc" firstAttribute="trailing" secondItem="vq3-FO-lfn" secondAttribute="trailing" id="YOL-rQ-nFG"/>
+                            <constraint firstItem="vq3-FO-lfn" firstAttribute="top" secondItem="RUH-GV-Bcc" secondAttribute="top" id="zwR-dP-bPn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="RUH-GV-Bcc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Beers" id="UKt-RU-J7w"/>
+                    <navigationItem key="navigationItem" title="Beers" id="UKt-RU-J7w">
+                        <barButtonItem key="rightBarButtonItem" title="+" systemItem="add" id="vYf-Fs-M79">
+                            <connections>
+                                <segue destination="RM8-lw-ptU" kind="show" id="aDu-n5-h5U"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iIG-Kz-EiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="-289"/>
+            <point key="canvasLocation" x="1353" y="-337"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IqX-bX-4H0">
@@ -252,4 +304,7 @@
             <point key="canvasLocation" x="-407" y="36"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dmf-XG-tCs"/>
+    </inferredMetricsTieBreakers>
 </document>

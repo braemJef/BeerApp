@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D4DF12C46F5D7F0E49BD321 /* Pods_Beer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF7398B753F735E767D4EA1 /* Pods_Beer.framework */; };
+		28D252315F6ED739CF31EE0D /* Pods_BeerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C778903A99B61AFDAFC5B0AB /* Pods_BeerUITests.framework */; };
+		9BA6804A072612634994586C /* Pods_BeerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69911D3D6B2AC53E1FF8EC47 /* Pods_BeerTests.framework */; };
+		9DA8A304211A1F9200776BC7 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A303211A1F9200776BC7 /* AddViewController.swift */; };
 		9DF659B82118F1C7003160AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF659B72118F1C7003160AB /* AppDelegate.swift */; };
 		9DF659BA2118F1C7003160AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF659B92118F1C7003160AB /* ViewController.swift */; };
 		9DF659BD2118F1C7003160AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF659BB2118F1C7003160AB /* Main.storyboard */; };
@@ -34,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1AA86004D53779B8D3883441 /* Pods-BeerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeerTests/Pods-BeerTests.release.xcconfig"; sourceTree = "<group>"; };
+		4EF7398B753F735E767D4EA1 /* Pods_Beer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69911D3D6B2AC53E1FF8EC47 /* Pods_BeerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6381B5335B75400AC96FB0 /* Pods-BeerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeerTests/Pods-BeerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8C06E4F32764FA38D39F8B63 /* Pods-BeerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeerUITests/Pods-BeerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9DA8A303211A1F9200776BC7 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		9DF659B42118F1C7003160AB /* Beer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF659B72118F1C7003160AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DF659B92118F1C7003160AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +57,10 @@
 		9DF659D32118F1C8003160AB /* BeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF659D72118F1C8003160AB /* BeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerUITests.swift; sourceTree = "<group>"; };
 		9DF659D92118F1C8003160AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A4EF9D3F7B3A1FC002BEDAB7 /* Pods-BeerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeerUITests/Pods-BeerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B9B21CBBB7196D7734979880 /* Pods-Beer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beer.release.xcconfig"; path = "Pods/Target Support Files/Pods-Beer/Pods-Beer.release.xcconfig"; sourceTree = "<group>"; };
+		BC4D6778D5AEFEE94304B545 /* Pods-Beer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Beer/Pods-Beer.debug.xcconfig"; sourceTree = "<group>"; };
+		C778903A99B61AFDAFC5B0AB /* Pods_BeerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D4DF12C46F5D7F0E49BD321 /* Pods_Beer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BA6804A072612634994586C /* Pods_BeerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +84,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28D252315F6ED739CF31EE0D /* Pods_BeerUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BB627913EA459DDDC7E0097 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EF7398B753F735E767D4EA1 /* Pods_Beer.framework */,
+				69911D3D6B2AC53E1FF8EC47 /* Pods_BeerTests.framework */,
+				C778903A99B61AFDAFC5B0AB /* Pods_BeerUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9DF659AB2118F1C7003160AB = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +108,8 @@
 				9DF659CB2118F1C8003160AB /* BeerTests */,
 				9DF659D62118F1C8003160AB /* BeerUITests */,
 				9DF659B52118F1C7003160AB /* Products */,
+				C84596E0F7A395F4A6655345 /* Pods */,
+				3BB627913EA459DDDC7E0097 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +132,7 @@
 				9DF659BE2118F1C7003160AB /* Assets.xcassets */,
 				9DF659C02118F1C7003160AB /* LaunchScreen.storyboard */,
 				9DF659C32118F1C7003160AB /* Info.plist */,
+				9DA8A303211A1F9200776BC7 /* AddViewController.swift */,
 			);
 			path = Beer;
 			sourceTree = "<group>";
@@ -125,6 +155,19 @@
 			path = BeerUITests;
 			sourceTree = "<group>";
 		};
+		C84596E0F7A395F4A6655345 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BC4D6778D5AEFEE94304B545 /* Pods-Beer.debug.xcconfig */,
+				B9B21CBBB7196D7734979880 /* Pods-Beer.release.xcconfig */,
+				6A6381B5335B75400AC96FB0 /* Pods-BeerTests.debug.xcconfig */,
+				1AA86004D53779B8D3883441 /* Pods-BeerTests.release.xcconfig */,
+				A4EF9D3F7B3A1FC002BEDAB7 /* Pods-BeerUITests.debug.xcconfig */,
+				8C06E4F32764FA38D39F8B63 /* Pods-BeerUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DF659DC2118F1C8003160AB /* Build configuration list for PBXNativeTarget "Beer" */;
 			buildPhases = (
+				619489ACD885205E4D7F9A9B /* [CP] Check Pods Manifest.lock */,
 				9DF659B02118F1C7003160AB /* Sources */,
 				9DF659B12118F1C7003160AB /* Frameworks */,
 				9DF659B22118F1C7003160AB /* Resources */,
+				D9E49BBEE95EB9E303E9DCE0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DF659DF2118F1C8003160AB /* Build configuration list for PBXNativeTarget "BeerTests" */;
 			buildPhases = (
+				9478C717C50F8D9A1C23BFD7 /* [CP] Check Pods Manifest.lock */,
 				9DF659C42118F1C7003160AB /* Sources */,
 				9DF659C52118F1C7003160AB /* Frameworks */,
 				9DF659C62118F1C7003160AB /* Resources */,
@@ -167,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DF659E22118F1C8003160AB /* Build configuration list for PBXNativeTarget "BeerUITests" */;
 			buildPhases = (
+				39B73DE568EA336B27C8A220 /* [CP] Check Pods Manifest.lock */,
 				9DF659CF2118F1C8003160AB /* Sources */,
 				9DF659D02118F1C8003160AB /* Frameworks */,
 				9DF659D12118F1C8003160AB /* Resources */,
@@ -254,6 +301,83 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		39B73DE568EA336B27C8A220 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BeerUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		619489ACD885205E4D7F9A9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Beer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9478C717C50F8D9A1C23BFD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BeerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9E49BBEE95EB9E303E9DCE0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Beer/Pods-Beer-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Beer/Pods-Beer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9DF659B02118F1C7003160AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -261,6 +385,7 @@
 			files = (
 				9DF659BA2118F1C7003160AB /* ViewController.swift in Sources */,
 				9DF659B82118F1C7003160AB /* AppDelegate.swift in Sources */,
+				9DA8A304211A1F9200776BC7 /* AddViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +549,7 @@
 		};
 		9DF659DD2118F1C8003160AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC4D6778D5AEFEE94304B545 /* Pods-Beer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -438,6 +564,7 @@
 		};
 		9DF659DE2118F1C8003160AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9B21CBBB7196D7734979880 /* Pods-Beer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -452,6 +579,7 @@
 		};
 		9DF659E02118F1C8003160AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A6381B5335B75400AC96FB0 /* Pods-BeerTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -468,6 +596,7 @@
 		};
 		9DF659E12118F1C8003160AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AA86004D53779B8D3883441 /* Pods-BeerTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +613,7 @@
 		};
 		9DF659E32118F1C8003160AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4EF9D3F7B3A1FC002BEDAB7 /* Pods-BeerUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -499,6 +629,7 @@
 		};
 		9DF659E42118F1C8003160AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C06E4F32764FA38D39F8B63 /* Pods-BeerUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
