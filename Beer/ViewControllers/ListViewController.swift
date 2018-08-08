@@ -14,7 +14,8 @@ var realm = try! Realm()
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var beersTableView: UITableView!
+    @IBOutlet var beersTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         beers = realm.objects(Beer.self)
@@ -31,11 +32,20 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "beerCellClick" {
+            let destination = segue.destination as! AddViewController
+            let beer = beers[(beersTableView.indexPathForSelectedRow?.row)!]
+            destination.editedBeer = beer
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell", for: indexPath) as! BeerCell
         let todo = beers[indexPath.row]
         cell.LeftCell.text = todo.Name
         cell.RightCell.text = todo.Brewery
+        cell.ExtraInfo.text = todo.Alcohol + " %"
         return cell
     }
     
@@ -46,16 +56,27 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     func reload() {
         beersTableView.reloadData()
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            try! realm.write {
+                realm.delete(beers[indexPath.row])
+            }
+            reload()
+        }
+    }
 }
 
 class Beer: Object {
     @objc dynamic var Name = ""
     @objc dynamic var Brewery = ""
+    @objc dynamic var Alcohol = ""
 }
 
 class BeerCell: UITableViewCell {
     @IBOutlet weak var LeftCell: UILabel!
     @IBOutlet weak var RightCell: UILabel!
+    @IBOutlet weak var ExtraInfo: UILabel!
 }
 
 
