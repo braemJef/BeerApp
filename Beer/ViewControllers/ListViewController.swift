@@ -42,10 +42,10 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeerCell", for: indexPath) as! BeerCell
-        let todo = beers[indexPath.row]
-        cell.LeftCell.text = todo.Name
-        cell.RightCell.text = todo.Brewery
-        cell.ExtraInfo.text = todo.Alcohol + " %"
+        let beer = beers[indexPath.row]
+        cell.LeftCell.text = beer.Name
+        cell.RightCell.text = String(repeating: "🍺", count: Int(beer.Score))
+        cell.ExtraInfo.text = beer.Alcohol + " %"
         return cell
     }
     
@@ -71,6 +71,7 @@ class Beer: Object {
     @objc dynamic var Name = ""
     @objc dynamic var Brewery = ""
     @objc dynamic var Alcohol = ""
+    @objc dynamic var Score: Double = 0.0
 }
 
 class BeerCell: UITableViewCell {

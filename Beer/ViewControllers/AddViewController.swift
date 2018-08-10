@@ -8,17 +8,22 @@
 
 import UIKit
 import RealmSwift
+import Photos
 
-class AddViewController: UIViewController, UITextFieldDelegate {
-    
-    var editedBeer: Beer? = nil
-    let realm = try! Realm()
+class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var beerNameTextField: UITextField!
     @IBOutlet weak var beerBreweryTextField: UITextField!
     @IBOutlet weak var beerAlcoholTextField: UITextField!
-    
+    @IBOutlet weak var beerScoreDisplay: UILabel!
+    @IBOutlet weak var beerScoreStepper: UIStepper!
     @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var addPhotoButton: UIButton!
+    
+    var editedBeer: Beer? = nil
+    let realm = try! Realm()
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +35,51 @@ class AddViewController: UIViewController, UITextFieldDelegate {
             beerNameTextField.text = editedBeer?.Name
             beerBreweryTextField.text = editedBeer?.Brewery
             beerAlcoholTextField.text = editedBeer?.Alcohol
-            print(editedBeer)
+            beerScoreStepper.value = (editedBeer?.Score)!
         } else {
             navigationBar.title = "Add"
         }
+        beerScoreDisplay.text = String(repeating: "🍺", count: Int(beerScoreStepper.value))
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func addPhotoAction(_ sender: Any) {
+        imagePicker.delegate = self
+        let actionSheet = UIAlertController(title: "Photo", message: "Choose a method", preferredStyle: .actionSheet)
+        
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                self.imagePicker.sourceType = .camera
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Photos", style: .default, handler: { (action: UIAlertAction) in
+            self.imagePicker.sourceType = .photoLibrary
+            self.present(self.imagePicker, animated: true, completion: nil)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageView.image = image
+            addPhotoButton.setTitle("", for: .normal)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func beerScoreAction(_ sender: Any) {
+        beerScoreDisplay.text = String(repeating: "🍺", count: Int(beerScoreStepper.value))
     }
     
     @IBAction func saveButtonAction(_ sender: Any) {
@@ -46,12 +88,14 @@ class AddViewController: UIViewController, UITextFieldDelegate {
                 editedBeer?.Name = beerNameTextField.text!
                 editedBeer?.Brewery = beerBreweryTextField.text!
                 editedBeer?.Alcohol = beerAlcoholTextField.text!
+                editedBeer?.Score = beerScoreStepper.value
             }
         } else {
             let beer = Beer()
             beer.Name = beerNameTextField.text!
             beer.Brewery = beerBreweryTextField.text!
             beer.Alcohol = beerAlcoholTextField.text!
+            beer.Score = beerScoreStepper.value
             try! realm.write {
                 realm.add(beer)
             }
@@ -63,10 +107,9 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         if string.isEmpty {
             return true
         }
-        var currentText = textField.text!
-        currentText = currentText.replacingOccurrences(of: ",", with: ".")
-        var fullText = currentText
+        var fullText = textField.text!
         fullText.append(string)
+        fullText = fullText.replacingOccurrences(of: ",", with: ".")
         
         let allowedCharacters = CharacterSet(charactersIn: "0123456789.,")
         let characterSet = CharacterSet(charactersIn: fullText)
@@ -93,3 +136,4 @@ class AddViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 }
+
