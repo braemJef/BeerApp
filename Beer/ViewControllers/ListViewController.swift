@@ -45,7 +45,11 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let beer = beers[indexPath.row]
         cell.LeftCell.text = beer.Name
         cell.RightCell.text = String(repeating: "🍺", count: Int(beer.Score))
-        cell.ExtraInfo.text = beer.Alcohol + " %"
+        if !beer.Alcohol.isEmpty {
+            cell.ExtraInfo.text = beer.Alcohol + " %"
+        } else {
+            cell.ExtraInfo.text = ""
+        }
         return cell
     }
     
@@ -71,7 +75,8 @@ class Beer: Object {
     @objc dynamic var Name = ""
     @objc dynamic var Brewery = ""
     @objc dynamic var Alcohol = ""
-    @objc dynamic var Score: Double = 0.0
+    @objc dynamic var Score = 0.0
+    @objc dynamic var ImagePath = ""
 }
 
 class BeerCell: UITableViewCell {

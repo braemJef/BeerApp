@@ -31,11 +31,22 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         beerAlcoholTextField.delegate = self
         
         if editedBeer != nil {
+            
+            // Part to retrieve image from app files
+            // This part was done with help from this blog post: https://appsandbiscuits.com/take-save-and-retrieve-a-photo-ios-13-4312f96793ff
+            let fileManager = FileManager.default
+            let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent((editedBeer?.ImagePath)!)
+            if fileManager.fileExists(atPath: imagePath){
+                imageView.image = UIImage(contentsOfFile: imagePath)
+                addPhotoButton.setTitle("", for: .normal)
+            }
+            
             navigationBar.title = "Edit"
             beerNameTextField.text = editedBeer?.Name
             beerBreweryTextField.text = editedBeer?.Brewery
             beerAlcoholTextField.text = editedBeer?.Alcohol
             beerScoreStepper.value = (editedBeer?.Score)!
+            
         } else {
             navigationBar.title = "Add"
         }
@@ -46,6 +57,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         super.didReceiveMemoryWarning()
     }
     
+    // All code concerning taking or selecting pictures
     @IBAction func addPhotoAction(_ sender: Any) {
         imagePicker.delegate = self
         let actionSheet = UIAlertController(title: "Photo", message: "Choose a method", preferredStyle: .actionSheet)
@@ -78,10 +90,34 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         picker.dismiss(animated: true, completion: nil)
     }
     
+    // Function to save image to app documents
+    // This part was done with help from this blog post: https://appsandbiscuits.com/take-save-and-retrieve-a-photo-ios-13-4312f96793ff
+    func saveImage(imageName: String) {
+        if let image = imageView.image {
+            // Initialize a fileManager
+            let fileManager = FileManager.default
+            
+            // Construct our image path
+            let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageName)
+            
+            if fileManager.fileExists(atPath: imagePath) {
+                try! fileManager.removeItem(atPath: imagePath)
+            }
+            
+            // Convert our taken image to data that the phone can save
+            let data = UIImagePNGRepresentation(image)
+            
+            // Save the image
+            fileManager.createFile(atPath: imagePath, contents: data, attributes: nil)
+        }
+    }
+    
+    // Handle score change
     @IBAction func beerScoreAction(_ sender: Any) {
         beerScoreDisplay.text = String(repeating: "🍺", count: Int(beerScoreStepper.value))
     }
     
+    // Save the beer
     @IBAction func saveButtonAction(_ sender: Any) {
         if editedBeer != nil {
             try! realm.write {
@@ -89,13 +125,17 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
                 editedBeer?.Brewery = beerBreweryTextField.text!
                 editedBeer?.Alcohol = beerAlcoholTextField.text!
                 editedBeer?.Score = beerScoreStepper.value
+                saveImage(imageName: (editedBeer?.ImagePath)!)
             }
         } else {
             let beer = Beer()
+            let imagePathName = String(Date().timeIntervalSinceNow)
             beer.Name = beerNameTextField.text!
             beer.Brewery = beerBreweryTextField.text!
             beer.Alcohol = beerAlcoholTextField.text!
             beer.Score = beerScoreStepper.value
+            beer.ImagePath = imagePathName
+            saveImage(imageName: imagePathName)
             try! realm.write {
                 realm.add(beer)
             }
@@ -103,6 +143,7 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         navigationController?.popViewController(animated: true)
     }
     
+    // Alcohol number handler
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string.isEmpty {
             return true
@@ -118,8 +159,8 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         if !stringIsValid {
             return false
         }
-        if fullText == "." {
-            textField.text = "0."
+        if fullText.prefix(1) == "." {
+            textField.text = "0." + fullText.replacingOccurrences(of: ".", with: "")
             return false
         }
         let amount = fullText.components(separatedBy: ".")
@@ -133,7 +174,9 @@ class AddViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
                 return false
             }
         }
-        return true
+        
+        textField.text = fullText
+        return false
     }
 }
 
